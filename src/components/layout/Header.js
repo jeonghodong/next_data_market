@@ -1,4 +1,4 @@
-import { Box, Button, Container, Dialog, DialogActions, DialogContent, Grid, Input, Link, Modal, TextField, Typography } from '@mui/material'
+import { Box, Button, Container, Dialog, DialogActions, DialogContent, Grid, Input, Modal, TextField, Typography } from '@mui/material'
 import Image from 'next/image'
 import logo from "/public/img/logo.png"
 import bell from "/public/img/ic_header_bell.png"
@@ -9,10 +9,14 @@ import search from "/public/img/ic_search_gray.png"
 import QR from "/public/img/qrCode.png"
 import InfoIcon from '@mui/icons-material/Info';
 import { useState } from 'react'
+import Link from 'next/link'
+import { useRouter } from 'next/router'
 
 export default function Header() {
   const [walletOpen, setWelletOpen] = useState(false)
   const [crowdOpen, setCrowdOpen] = useState(false)
+
+  const router = useRouter();
 
   const handleWalletOpen = () => {
     setWelletOpen(true);
@@ -25,6 +29,10 @@ export default function Header() {
     setCrowdOpen(true);
   }
   const handleCrowdClose = () => {
+    setCrowdOpen(false);
+  }
+  const handleRouteJob = () => {
+    router.push('/job')
     setCrowdOpen(false);
   }
 
@@ -49,14 +57,17 @@ export default function Header() {
     outline: "none",
     overflowY: 'auto',
   }
+
   return (
     <Box sx={HeaderBoxStyle}>
       <Container maxWidth="xl" sx={{ padding: "1rem", border: "1px soild black" }}>
         <Grid container>
           <Grid item xs="1.5" >
-            <Image src={logo} alt="logo" width={150} style={{
-              cursor: "pointer"
-            }} />
+            <Link href="/">
+              <Image src={logo} alt="logo" width={150} style={{
+                cursor: "pointer"
+              }} />
+            </Link>
           </Grid>
           <Grid item xs="8.5">
             <Box sx={InputBoxStyle}>
@@ -108,8 +119,8 @@ export default function Header() {
             </DialogContent>
           </Box>
           <DialogActions display="flex" justifyContent="right">
-            <Button variant="outlined">이동</Button>
-            < Button variant="outlined" onClick={handleCrowdClose}> 취소</Button>
+            <Button onClick={handleRouteJob} variant="outlined">이동</Button>
+            <Button variant="outlined" onClick={handleCrowdClose}> 취소</Button>
           </DialogActions>
         </Dialog>
       </Container >

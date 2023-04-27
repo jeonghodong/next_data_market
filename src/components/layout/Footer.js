@@ -15,6 +15,7 @@ export default function Footer() {
   const BoxStyle = {
     borderTop: "1px solid rgb(237, 242, 245)",
     py: "2.5rem",
+    mt: "2rem"
   }
   const ContainerStyle = {
     display: "flex",

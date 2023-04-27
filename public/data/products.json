@@ -1,0 +1,52 @@
+{
+  "products": [
+    {
+      "id": 1,
+      "title": "해양기상데이터",
+      "acc": "2020 ~ 23년도 해양 기상데이터 입니다.",
+      "seller": "Data Clone Observer AI Inc.",
+      "season": "2023.03.03~2023.05.01",
+      "img": "../img/product1.jpeg",
+      "price": "3,700,000",
+      "count": 0,
+      "heart": 0,
+      "tag": ["사진", "환경"]
+    },
+    {
+      "id": 2,
+      "title": "해양기상데이터",
+      "acc": "2020 ~ 23년도 해양 기상데이터 입니다.",
+      "seller": "Data Clone Observer AI Inc.",
+      "season": "2023.03.03~2023.05.01",
+      "img": "../img/product1.jpeg",
+      "price": "3,700,000",
+      "count": 0,
+      "heart": 0,
+      "tag": ["사진", "환경"]
+    },
+    {
+      "id": 3,
+      "title": "해양기상데이터",
+      "acc": "2020 ~ 23년도 해양 기상데이터 입니다.",
+      "seller": "Data Clone Observer AI Inc.",
+      "season": "2023.03.03~2023.05.01",
+      "img": "../img/product1.jpeg",
+      "price": "3,700,000",
+      "count": 0,
+      "heart": 0,
+      "tag": ["사진", "환경"]
+    },
+    {
+      "id": 4,
+      "title": "해양기상데이터",
+      "acc": "2020 ~ 23년도 해양 기상데이터 입니다.",
+      "seller": "Data Clone Observer AI Inc.",
+      "season": "2023.03.03~2023.05.01",
+      "img": "../img/product1.jpeg",
+      "price": "3,700,000",
+      "count": 0,
+      "heart": 0,
+      "tag": ["사진", "환경"]
+    }
+  ]
+}

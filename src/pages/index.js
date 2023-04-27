@@ -1,17 +1,39 @@
-import { Box, Container, Typography } from "@mui/material";
-import InfoIcon from '@mui/icons-material/Info';
+import { Box, Container } from "@mui/material";
+import { useEffect, useState } from "react";
+import axios from "axios";
+import HotDatas from "@/components/main/HotDatas";
+import NewDatas from "@/components/main/NewDatas";
+import Image from "next/image";
+import banner from "/public/img/sample_banner.png"
 
 export default function Home() {
+  const [products, setProducts] = useState([])
+
+  useEffect(() => {
+    axios.get(`/data/products.json`).then((res) => {
+      console.log(res.data.products)
+      setProducts(res.data.products)
+    }).catch((err) => {
+      console.log(err)
+    })
+  }, [])
+
+  const WrapBoxStyle = {
+    my: "1.5rem",
+    display: "flex",
+    flexDirection: "column",
+    justifyContent: "center",
+  }
+
   return (
-    <Container maxWidth="xl" fiexd disableGutters>
-      <Box display="flex" flexDirection="column" alignItems="center" justifyContent="center" height="70vh">
-        <InfoIcon sx={{ fontSize: "10rem", color: "gray" }} />
-        <Typography variant="h1" sx={{ fontWeight: "300", fontSize: "3rem" }}>서비스 준비중입니다.</Typography>
-        <Typography variant="p" sx={{
-          textAlign: "center", marginTop: "1rem", fontSize: "1rem"
-        }}>보다 나은 서비스를 위하여 페이지 준비중에 있습니다.<br /><br />
-          빠른 시일내에 준비하겠습니다.</Typography>
-      </Box>
+    <Container maxWidth="xl" fiexd>
+      <Box sx={WrapBoxStyle}>
+        <Box sx={{ display: "flex", justifyContent: "center", alignItems: "center" }}>
+          <Image src={banner} alt="banner" width="100%"></Image>
+        </Box>
+        <NewDatas products={products} />
+        <HotDatas products={products} />
+      </Box >
     </Container >
   )
 }

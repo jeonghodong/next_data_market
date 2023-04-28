@@ -5,11 +5,17 @@ import ViewListIcon from '@mui/icons-material/ViewList';
 import { Box, Button, ButtonGroup, Grid, IconButton, Typography } from "@mui/material";
 import Image from "next/image";
 import { useRouter } from "next/router";
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 export default function HotDatas({ products }) {
   const [viewType, setViewType] = useState("grid");
+  const [newProducts, setNewProducts] = useState([]);
   const router = useRouter();
+  const NewProducts = [...products]
+
+  useEffect(() => {
+    setNewProducts(NewProducts.slice(0, 4))
+  }, [products])
 
   const handleViewType = (type) => {
     setViewType(type);
@@ -39,7 +45,7 @@ export default function HotDatas({ products }) {
         </ButtonGroup>
       </Box>
       {viewType === "grid" ? <Grid container spacing={2}>
-        {products.map((v, i) => (
+        {newProducts.map((v, i) => (
           <Grid item xs={3} key={i}>
             <Box onClick={() => handleDetail(v.id)} sx={{ border: "1px solid #eee", borderRadius: "1.5rem", cursor: "pointer" }}>
               <img src={v.img} alt="img" width="100%" height={150} style={{ borderTopRightRadius: "1.5rem", borderTopLeftRadius: "1.5rem" }}></img>
@@ -77,7 +83,7 @@ export default function HotDatas({ products }) {
         ))
         }
       </Grid > : <Grid container spacing={2}>
-        {products.map((v, i) => (
+        {newProducts.map((v, i) => (
           <Grid item xs={12} key={i}>
             <Box onClick={() => handleDetail(v.id)} sx={{ border: "1px solid #eee", borderRadius: "1.5rem", cursor: "pointer", display: "flex", justifyContent: "space-between", alignItems: "center", padding: "1rem" }}>
               <Box sx={{ display: "flex" }}>

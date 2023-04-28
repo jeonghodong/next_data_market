@@ -27,7 +27,7 @@ export default function index() {
   return (
     <Container maxWidth="xl" >
       <Box sx={{ display: "flex", justifyContent: "space-between", my: "2rem" }}>
-        <Typography component="h2" variant="h6" sx={{ fontSize: "1.5rem", fontWeight: "bold" }}>인기 데이터셋</Typography>
+        <Typography component="h2" variant="h6" sx={{ fontSize: "1.5rem", fontWeight: "bold" }}>전체 데이터</Typography>
         <ButtonGroup variant="contained" aria-label="text button group">
           <IconButton>
             <GridViewIcon onClick={() => handleViewType("grid")} />

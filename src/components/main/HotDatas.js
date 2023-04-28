@@ -41,7 +41,9 @@ export default function HotDatas({ products }) {
           <IconButton>
             <ViewListIcon onClick={() => handleViewType("list")} />
           </IconButton>
-          <Button variant="text">View all</Button>
+          <Button variant="text" onClick={() => {
+            router.push('/product_all')
+          }}>View all</Button>
         </ButtonGroup>
       </Box>
       {viewType === "grid" ? <Grid container spacing={2}>

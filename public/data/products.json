@@ -9,7 +9,7 @@
       "img": "../img/product1.jpeg",
       "price": "3,420,000",
       "count": 0,
-      "heart": 0,
+      "heart": 5,
       "tag": ["사진", "환경"]
     },
     {
@@ -21,7 +21,7 @@
       "img": "../img/product2.jpeg",
       "price": "3,700,000",
       "count": 0,
-      "heart": 0,
+      "heart": 2,
       "tag": ["사진", "환경"]
     },
     {
@@ -45,7 +45,7 @@
       "img": "../img/product4.jpeg",
       "price": "3,612,000",
       "count": 0,
-      "heart": 0,
+      "heart": 7,
       "tag": ["사진", "환경"]
     },
     {
@@ -57,7 +57,7 @@
       "img": "../img/product5.jpeg",
       "price": "2,620,000",
       "count": 0,
-      "heart": 0,
+      "heart": 22,
       "tag": ["사진", "환경"]
     },
     {
@@ -69,7 +69,7 @@
       "img": "../img/product6.jpeg",
       "price": "3,000,000",
       "count": 0,
-      "heart": 0,
+      "heart": 13,
       "tag": ["사진", "기타"]
     },
     {
@@ -119,6 +119,42 @@
       "count": 0,
       "heart": 324,
       "tag": ["사진", "통신"]
+    },
+    {
+      "id": 11,
+      "title": "교통량 데이터",
+      "acc": "지역별 온라인 업종 결제 트랜드입니다.",
+      "seller": "주식회사 데이터론",
+      "season": "2023.03.05~2023.05.03",
+      "img": "../img/product11.jpeg",
+      "price": "10,000,000",
+      "count": 0,
+      "heart": 24,
+      "tag": ["사진", "교통"]
+    },
+    {
+      "id": 12,
+      "title": "바이러스 감염증",
+      "acc": "바이러스 감염증에 관련된 자료",
+      "seller": "Data Clone Observer AI Inc.",
+      "season": "2023.03.05~2023.05.03",
+      "img": "../img/product12.jpeg",
+      "price": "3,200,000",
+      "count": 0,
+      "heart": 124,
+      "tag": ["사진", "헬스케어"]
+    },
+    {
+      "id": 13,
+      "title": "폐기물 배출량",
+      "acc": "폐기물 배출량에 대한 데이터 입니다.",
+      "seller": "globaldata Inc.",
+      "season": "2023.03.05~2023.05.03",
+      "img": "../img/product13.jpeg",
+      "price": "14,500,000",
+      "count": 0,
+      "heart": 14,
+      "tag": ["사진", "산림"]
     }
   ]
 }

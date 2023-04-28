@@ -6,12 +6,21 @@ import GridViewIcon from '@mui/icons-material/GridView';
 import ViewListIcon from '@mui/icons-material/ViewList';
 import { Box, Button, ButtonGroup, Container, Grid, IconButton, Typography } from "@mui/material";
 import Image from "next/image";
+import { useRouter } from 'next/router';
 
 
 export default function index() {
   const [viewType, setViewType] = useState("grid");
   const [products, setProducts] = useState([]);
-
+  const router = useRouter();
+  const handleDetail = (id) => {
+    router.push({
+      pathname: "/product",
+      query: {
+        id: id,
+      }
+    })
+  }
   const handleViewType = (type) => {
     setViewType(type);
   }
@@ -118,7 +127,7 @@ export default function index() {
           </Grid>
         ))
         }
-      </Grid >}
+      </Grid>}
     </Container>
   )
 }

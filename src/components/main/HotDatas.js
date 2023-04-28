@@ -4,8 +4,20 @@ import GridViewIcon from '@mui/icons-material/GridView';
 import ViewListIcon from '@mui/icons-material/ViewList';
 import { Box, Button, ButtonGroup, Grid, IconButton, Typography } from "@mui/material";
 import Image from "next/image";
+import { useRouter } from "next/router";
 
 export default function HotDatas({ products }) {
+  const router = useRouter();
+
+  const handleDetail = (id) => {
+    router.push({
+      pathname: "/product",
+      query: {
+        id: id,
+      }
+    })
+  }
+
   return (
     <>
       <Box sx={{ display: "flex", justifyContent: "space-between", my: "2rem" }}>
@@ -23,7 +35,7 @@ export default function HotDatas({ products }) {
       <Grid container spacing={2}>
         {products.map((v, i) => (
           <Grid item xs={3} key={i}>
-            <Box sx={{ border: "1px solid #eee", borderRadius: "1.5rem", cursor: "pointer" }}>
+            <Box onClick={() => handleDetail(v.id)} sx={{ border: "1px solid #eee", borderRadius: "1.5rem", cursor: "pointer" }}>
               <img src={v.img} alt="img" width="100%" height={150} style={{ borderTopRightRadius: "1.5rem", borderTopLeftRadius: "1.5rem" }}></img>
               <Box sx={{ p: "1.2rem", display: "flex", flexDirection: "column", gap: "1rem" }}>
                 <Box sx={{ display: "flex", gap: "0.5rem" }}>

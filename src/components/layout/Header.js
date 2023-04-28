@@ -31,10 +31,6 @@ export default function Header() {
   const handleCrowdClose = () => {
     setCrowdOpen(false);
   }
-  const handleRouteJob = () => {
-    router.push('/job')
-    setCrowdOpen(false);
-  }
 
   const InputBoxStyle = {
     border: "1px solid rgb(221, 228, 235)",
@@ -77,7 +73,9 @@ export default function Header() {
           </Grid>
           <Grid item xs="2">
             <Box flex={1} display="flex" justifyContent="center" gap={1} >
-              <Image src={datamarket} alt="logo" width={40} style={{
+              <Image src={datamarket} onClick={() => {
+                router.push("/product_all")
+              }} alt="logo" width={40} style={{
                 cursor: "pointer"
               }}></Image>
               < Image src={crowdsourcing} onClick={handleCrowdOpen} alt="logo" width={40} style={{
@@ -119,7 +117,10 @@ export default function Header() {
             </DialogContent>
           </Box>
           <DialogActions display="flex" justifyContent="right">
-            <Button onClick={handleRouteJob} variant="outlined">이동</Button>
+            <Button onClick={() => {
+              router.push('/job')
+              setCrowdOpen(false);
+            }} variant="outlined">이동</Button>
             <Button variant="outlined" onClick={handleCrowdClose}> 취소</Button>
           </DialogActions>
         </Dialog>

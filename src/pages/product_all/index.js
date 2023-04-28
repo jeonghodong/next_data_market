@@ -1,37 +1,31 @@
+import axios from "axios";
+import { useEffect, useState } from "react";
 import eye from "/public/img/ic_eye_gray_16.84601f9a.png"
 import heart from "/public/img/ic_heart_gray_16.29930d70.png"
 import GridViewIcon from '@mui/icons-material/GridView';
 import ViewListIcon from '@mui/icons-material/ViewList';
-import { Box, Button, ButtonGroup, Grid, IconButton, Typography } from "@mui/material";
+import { Box, Button, ButtonGroup, Container, Grid, IconButton, Typography } from "@mui/material";
 import Image from "next/image";
-import { useRouter } from "next/router";
-import { useEffect, useState } from 'react';
 
-export default function HotDatas({ products }) {
+
+export default function index() {
   const [viewType, setViewType] = useState("grid");
-  const [hotProducts, setHotProducts] = useState([]);
-  const router = useRouter();
-  const NewProducts = [...products];
-
-  useEffect(() => {
-    setHotProducts(NewProducts.sort((a, b) => b.heart - a.heart).slice(0, 4))
-  }, [products])
+  const [products, setProducts] = useState([]);
 
   const handleViewType = (type) => {
     setViewType(type);
   }
 
-  const handleDetail = (id) => {
-    router.push({
-      pathname: "/product",
-      query: {
-        id: id,
-      }
+  useEffect(() => {
+    axios.get(`/data/products.json`).then((res) => {
+      setProducts(res.data.products)
+    }).catch((err) => {
+      console.log(err)
     })
-  }
+  }, [])
 
   return (
-    <>
+    <Container maxWidth="xl" >
       <Box sx={{ display: "flex", justifyContent: "space-between", my: "2rem" }}>
         <Typography component="h2" variant="h6" sx={{ fontSize: "1.5rem", fontWeight: "bold" }}>인기 데이터셋</Typography>
         <ButtonGroup variant="contained" aria-label="text button group">
@@ -45,7 +39,7 @@ export default function HotDatas({ products }) {
         </ButtonGroup>
       </Box>
       {viewType === "grid" ? <Grid container spacing={2}>
-        {hotProducts.map((v, i) => (
+        {products.map((v, i) => (
           <Grid item xs={3} key={i}>
             <Box onClick={() => handleDetail(v.id)} sx={{ border: "1px solid #eee", borderRadius: "1.5rem", cursor: "pointer" }}>
               <img src={v.img} alt="img" width="100%" height={150} style={{ borderTopRightRadius: "1.5rem", borderTopLeftRadius: "1.5rem" }}></img>
@@ -83,7 +77,7 @@ export default function HotDatas({ products }) {
         ))
         }
       </Grid > : <Grid container spacing={2}>
-        {hotProducts.map((v, i) => (
+        {products.map((v, i) => (
           <Grid item xs={12} key={i}>
             <Box onClick={() => handleDetail(v.id)} sx={{ border: "1px solid #eee", borderRadius: "1.5rem", cursor: "pointer", display: "flex", justifyContent: "space-between", alignItems: "center", padding: "1rem" }}>
               <Box sx={{ display: "flex" }}>
@@ -125,7 +119,8 @@ export default function HotDatas({ products }) {
         ))
         }
       </Grid >}
-    </>
+    </Container>
   )
 }
+
 

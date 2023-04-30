@@ -26,7 +26,7 @@ export default function index() {
   }
 
   useEffect(() => {
-    axios.get(`/data/products.json`).then((res) => {
+    axios.get(`/next_data_market/data/products.json`).then((res) => {
       setProducts(res.data.products)
     }).catch((err) => {
       console.log(err)

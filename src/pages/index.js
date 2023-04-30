@@ -10,7 +10,7 @@ export default function Home() {
   const [products, setProducts] = useState([])
 
   useEffect(() => {
-    axios.get(`/data/products.json`).then((res) => {
+    axios.get(`/next_data_market/data/products.json`).then((res) => {
       console.log(res.data.products)
       setProducts(res.data.products)
     }).catch((err) => {
